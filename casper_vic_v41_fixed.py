@@ -328,10 +328,21 @@ defaults={'site_lat':-37.8136,'site_lon':144.9631,'site_label':'Melbourne, Victo
 for k,v in defaults.items():
  if k not in st.session_state:st.session_state[k]=v
 
-st.markdown('''<div class="hero"><div class="kicker">EPA VICTORIA · CIRCULAR DATA CENTRE SITE INTELLIGENCE</div><div class="hero-title">CASPER<span style="color:#62f0e3">·VIC V4</span></div><div class="hero-sub">Eight-lens, evidence-aware site screening with dynamic condition and confidence wheels, sensitive water/cooling logic, heat off-taker intelligence and agricultural reuse.</div><span class="pill">8-lens condition wheel</span><span class="pill">Evidence confidence wheel</span><span class="pill">Cooling × water sensitivity</span><span class="pill">Heat off-takers</span><span class="pill">Agricultural reuse</span><span class="pill">20+ page report</span></div>''',unsafe_allow_html=True)
+st.markdown('''<div class="hero"><div class="kicker">VICTORIA · CIRCULAR DATA CENTRE SITE INTELLIGENCE</div><div class="hero-title">CASPER<span style="color:#62f0e3">·VIC V4</span></div><div class="hero-sub">Eight-lens, evidence-aware site screening with dynamic condition and confidence wheels, sensitive water/cooling logic, heat off-taker intelligence and agricultural reuse.</div><span class="pill">8-lens condition wheel</span><span class="pill">Evidence confidence wheel</span><span class="pill">Cooling × water sensitivity</span><span class="pill">Heat off-takers</span><span class="pill">Agricultural reuse</span><span class="pill">20+ page report</span></div>''',unsafe_allow_html=True)
+
+st.markdown('''
+<div class="card" style="border-left:5px solid #c98416;margin-bottom:18px">
+  <div class="label" style="color:#a56808">DEVELOPMENT PROTOTYPE — FOR DEMONSTRATION AND INTERNAL REVIEW ONLY</div>
+  <div style="margin-top:7px;font-size:.86rem;line-height:1.5">
+    CASPER provides preliminary screening information only. Outputs must not be relied upon for investment,
+    planning, regulatory, engineering or site-selection decisions. All findings require verification against
+    authoritative data, project-specific investigations and appropriate professional due diligence.
+  </div>
+</div>
+''', unsafe_allow_html=True)
 
 with st.sidebar:
- st.markdown('## ◈ CASPER Controls');st.caption('Pre-feasibility decision support — not a statutory determination.')
+ st.markdown('## ◈ CASPER Controls');st.caption('Development prototype for pre-feasibility screening — not a statutory determination or professional advice.')
  st.markdown('### 1 · Site search');q=st.text_input('Victorian locality or address',placeholder='Start typing: Tru..., Lav..., Mall...')
  suggestions=search_victoria(q) if len(q.strip())>=2 else []
  if suggestions:
@@ -452,4 +463,4 @@ if st.session_state.assessment:
   if st.button('⛓ Record assessment',use_container_width=True):b=append_block(payload);st.success(b['assessment_id'])
  st.caption(f'Ledger integrity: {ledger}')
 
-st.markdown('---');st.markdown(f'<span class="small">{APP_VERSION} · Pre-feasibility data-centre site intelligence for Victoria. Observed evidence, model inference and authoritative verification are deliberately separated.</span>',unsafe_allow_html=True)
+st.markdown('---');st.markdown(f'<span class="small">{APP_VERSION} · Development prototype for pre-feasibility data-centre site intelligence in Victoria. For demonstration/internal review only. Observed evidence, model inference and authoritative verification are deliberately separated.</span>',unsafe_allow_html=True)
