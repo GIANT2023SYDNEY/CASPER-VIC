@@ -377,7 +377,7 @@ if st.session_state.portal!='overview' and st.session_state.assessment:
 left,right=st.columns([1.55,1],gap='large')
 with left:
  st.markdown('### 01 · Locality → candidate site');st.caption('Search a Victorian locality/address, then click the map for a more precise point.')
- m=folium.Map(location=[st.session_state.site_lat,st.session_state.site_lon],zoom_start=11,tiles='CartoDB positron',control_scale=True);folium.CircleMarker([st.session_state.site_lat,st.session_state.site_lon],radius=10,color='#0f9f8f',weight=3,fill=True,fill_color='#16b7c9',fill_opacity=.35,tooltip='Current candidate').add_to(m)
+ m=folium.Map(location=[st.session_state.site_lat,st.session_state.site_lon],zoom_start=11,tiles='OpenStreetMap',control_scale=True);folium.CircleMarker([st.session_state.site_lat,st.session_state.site_lon],radius=10,color='#0f9f8f',weight=3,fill=True,fill_color='#16b7c9',fill_opacity=.35,tooltip='Current candidate').add_to(m)
  if st.session_state.assets:
   groups={'Power':MarkerCluster(name='Power'),'Water':MarkerCluster(name='Water / wastewater'),'Industry':MarkerCluster(name='Industry / heat users')}
   for g in groups.values():
